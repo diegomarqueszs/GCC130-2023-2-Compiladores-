@@ -11,3 +11,4 @@
 ## Membros do grupo:
 - DIEGO DE SOUZA MARQUES **202111037** *(diego.marques1@estudante.ufla.br)*
 - LUIZ FILIPE BARTELEGA PENHA **202111082** *(luiz.penha1@estudante.ufla.br)*
+- MAURÍCIO MARTINS DAMASCENO **202020884** *(mauricio.damasceno@estudante.ufla.br)*
