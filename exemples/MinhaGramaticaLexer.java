@@ -1,4 +1,4 @@
-// Generated from .\MinhaGramatica.g4 by ANTLR 4.7.2
+package exemples;// Generated from .\MinhaGramatica.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -88,7 +88,7 @@ public class MinhaGramaticaLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "MinhaGramatica.g4"; }
+	public String getGrammarFileName() { return "exemples/MinhaGramatica.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
