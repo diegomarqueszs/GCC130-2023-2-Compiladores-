@@ -45,15 +45,18 @@
 
 ### 2. Definição Léxica: lexemas aceitos, classes de lexemas e seus padrões de identificação:
 
-| padrão                                                  | classes                                                          | lexemas          |
-|---------------------------------------------------------|------------------------------------------------------------------|------------------|
-| Os próprios lexemas                                     | Palavra-chave = qint, qbool, qdouble, qchar, if, else, while,for | O próprio lexema |
-| Os próprios lexemas                                     | Operadores aritméticos = + , -, /, *                             | OpArit           |
-| Os próprios lexemas                                     | Operadores relacionais =  <, <>, <!>, >, <-                      | OpRel            |
-| Os próprios lexemas                                     | Operadores booleanos =  E, OU                                    | OpBool           |
-| Os próprios lexemas                                     | Chaves = <quack>, </quack>                                       | AQ / FQ          |
-| Os próprios lexemas                                     | Parênteses = (,)                                                 | AP /FP           | 
-| Squências de caracteres e números que começam com letra | Variável                                                         | Var              | 
-| Sequência de digítos (sem vírgula)                      | Número Inteiro                                                   | NumI             |
-| Sequência de digitos (com vírgula)                      | Número Real                                                      | NumR             |                
- 
+| padrão                                                  | classes                                               | lexemas |
+|---------------------------------------------------------|-------------------------------------------------------|---------|
+| Os próprios lexemas                                     | Palavra-chave = qint, qbool, qdouble, qchar, if, else | Tipo    |
+| Os próprios lexemas                                     | Repetição: while, for                                 | Rep     |
+| Os próprios lexemas                                     | Atribuição: <-                                        | Art     |
+| Os próprios lexemas                                     | Operadores aritméticos = + , -, /, *, %               | OpArit  |
+| Os próprios lexemas                                     | Operadores relacionais =  <, <>, <!>, >               | OpRel   |
+| Os próprios lexemas                                     | Operadores booleanos =  E, OU                         | OpBool  |
+| Os próprios lexemas                                     | Chaves = <quack>, </quack>                            | AQ / FQ |
+| Os próprios lexemas                                     | Parênteses = (,)                                      | AP /FP  | 
+| Squências de caracteres e números que começam com letra | Variável                                              | Var     | 
+| Sequência de digítos (sem vírgula)                      | Número Inteiro                                        | NumI    |
+| Sequência de digitos (com vírgula)                      | Número Real                                           | NumR    |                
+
+### 3. Implementação do Analisador Léxico: Detalhes da implementação do analisador léxico semântico (incluir capturas de tela com descrição de tudo que foi gerado tanto pela equipe, quanto pelo ANTLR);
