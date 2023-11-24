@@ -43,6 +43,56 @@
     </quack>
 ```
 
+```java
+qvoid mergeSort(qint[] arrayEntrada) <quack>
+	qint tamanhoArray <- arrayEntrada.qlength;
+	if (tamanhoArray > 2) <quack> 
+		qint <- tamanho/2;
+		qint [] inicio <- new qint[meio];
+		qint [] fim <- new qint[tamanhoArray - meio];
+		for (qint i <- 0; i < meio; i++) <quack>
+			inicio[i] <- arrayEntrada[i];
+		</quack>
+		for (qint i <- meio; i < tamanhoArray; i++) <quack>
+			fim[i - meio] <- arrayEntrada[i];
+		</quack>
+		mergeSort(inicio);
+		mergeSort(fim);
+		
+		merge(arrayEntrada, inicio, fim);
+	</quack>
+</quack>
+
+
+qvoid merge(qint[] arrayEntrada, qint inicio[], qint fim[]) <quack>
+	qint tamanhoInicio <- inicio.qlength;
+	qint tamanhoFim <- fim.qlength;
+	qint i <- 0, j <- 0, k <- 0;
+	
+	while(i < tamanhoInicio E j < tamanhoFim) <quack>
+		if (inicio[i] <= fim[j]) <quack>
+			arrayEntrada[k] <- inicio[i];
+			i++;
+		</quack> else <quack> 
+			arrayEntrada[k] <- fim[j];
+			j++;
+		</quack>
+		k++;
+	</quack>
+	while(i < tamanhoInicio) <quack>
+		arrayEntrada[k] <- inicio[i];
+		i++;
+		k++;
+	</quack>
+	while(j < tamanhoFim) <quack>
+		arrayEntrada[k] <- fim[k];
+		j++;
+		k++;
+	</quack>
+</quack>
+
+```
+
 ### 2. Definição Léxica: lexemas aceitos, classes de lexemas e seus padrões de identificação:
 
 | padrão                                                  | classes                                               | lexemas |
