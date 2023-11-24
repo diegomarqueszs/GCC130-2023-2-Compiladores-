@@ -60,3 +60,20 @@
 | Sequência de digitos (com vírgula)                      | Número Real                                           | NumR    |                
 
 ### 3. Implementação do Analisador Léxico: Detalhes da implementação do analisador léxico semântico (incluir capturas de tela com descrição de tudo que foi gerado tanto pela equipe, quanto pelo ANTLR);
+OK
+### 4. Definição Sintática: Especificação da gramática livre de contexto prevendo toda a estrutura gramatical da linguagem;
+
+```java
+Tipo    -> qint | qbool | qdouble | qchar | if | else
+Rep     ->  while | for;
+Atr     ->  <-
+OpArit  ->  + | - | * | / | %;
+AQ      ->  <quack>
+FQ      ->  </quack>
+AP      ->  (
+FP      ->  )
+OpRel:  ->  < |  <> | <!> |  >
+OpBool: ->  E | OU;
+```
+
+### 5.  Implementação do Analisador Sintático: Detalhes da implementação do analisador sintático semântico (incluir capturas de tela com descrição de tudo que foi gerado tanto pela equipe, quanto pelo ANTLR);
