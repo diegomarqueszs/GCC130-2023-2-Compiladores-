@@ -1,16 +1,39 @@
 grammar PATO;
+// Definição semântica
+main: (blocoFunc)* EOF;
+blocoFunc: Func Tipo Var '(' parametros ')' '{' escopoFunc '}';
+parametros: (Tipo Var',' parametros)?; //duvida
+escopoFunc: ((Tipo Var)* ';')? | operacoes? | condicoes? | return?;
+return: RTN;
+operacoes: OpArit? | OpRel? | Atr?;
+condicoes: Cond | OpBool?;
 
-Tipo: 'qint' | 'qbool' | 'qdouble' | 'qchar' | 'if' | 'else';
+//Tirar duvida com maumau
+//valor: ();
+input: 'quackin' '('(Var)')'';';
+output: 'quackout' '('valor')'';';
+
+
+// Definição sintática
+Tipo: 'qint' | 'qbool' | 'qdouble' | 'qchar' | 'qvoid';
 Rep:  'while' | 'for';
+Cond: 'if' | 'else' ;
 Atr: '<-';
 OpArit: '+' | '-' | '*' | '/' | '%';
+Func: 'func';
 
+RTN: 'return';
 AQ: '<quack>';
 FQ: '</quack>';
 AP: '(';
 FP: ')';
-OpRel: '<' |  '<>' | '<!>' |  '>';
+OpRel: '<' |  '<>' | '<!>' |  '>' |  '>=' |  '<=';
 OpBool: 'E' | 'OU';
+DELIM: ';';
+COMMA: ',';
+
+QIN: 'quackin';
+QOUT:'quackout';
 
 Var: LETRA(DIGITO | LETRA)*;
 NumI: DIGITO;

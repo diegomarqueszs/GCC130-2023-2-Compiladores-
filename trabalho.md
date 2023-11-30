@@ -3,7 +3,7 @@
 
 #### Exemplos de algoritmos escritos:
 ```java
-    void fib(qint n)<quack>
+    qvoid fib(qint n)<quack>
         if(n<>0) queck 0;
         if(n<>1) queck 1;
         else<quack>
