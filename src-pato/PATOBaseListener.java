@@ -87,6 +87,18 @@ public class PATOBaseListener implements PATOListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFuncao(PATOParser.FuncaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFuncao(PATOParser.FuncaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAtribuicao(PATOParser.AtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -147,6 +159,18 @@ public class PATOBaseListener implements PATOListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRelacao(PATOParser.RelacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRelacao(PATOParser.RelacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCondicoes(PATOParser.CondicoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -154,6 +178,18 @@ public class PATOBaseListener implements PATOListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCondicoes(PATOParser.CondicoesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParametrosCondicao(PATOParser.ParametrosCondicaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParametrosCondicao(PATOParser.ParametrosCondicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

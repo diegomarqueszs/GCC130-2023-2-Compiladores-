@@ -2,25 +2,28 @@ grammar PATO;
 
 // Definição sintática
 main: (blocoFunc)* EOF;
-blocoFunc: Func Tipo Var '(' parametros ')' '{' escopoFunc '}';
+blocoFunc: Tipo Var AP parametros FP escopoFunc ;
 parametros: Tipo Var (',' Tipo Var)*; // Lista de parâmetros de função
-escopoFunc: (declaracao | comandos | condicoes | retorno | atribuicao)+;
+escopoFunc: AQ (declaracao | comandos | condicoes | retorno | atribuicao | relacao)+ FQ;
 declaracao: Tipo Var ';';
-retorno: RTN;
-atribuicao: Var Atr expressao ';';
+retorno: RTN ( expressao | atribuicao | AP funcao OpArit funcao? FP ) DELIM;
+funcao: Var AP ( expressao | atribuicao )+ FP;
+atribuicao: Var Atr expressao DELIM;
 expressao: termo (OpArit termo)*;
 termo: fator (OpArit fator)*;
 fator: Var | Numero;
 comandos: OpArit | input | output;
-condicoes: Cond | OpBool;
+relacao: OpBool;
+condicoes: Cond (AP  parametrosCondicao (OpBool  parametrosCondicao)* FP)? ( retorno | escopoFunc ) ;
+parametrosCondicao: expressao OpRel  expressao;
 input: QIN OPIO '(' Var (',' Var)* ')' ';';
 output: QOUT OPIO '(' Var (',' Var)* ')' ';';
 
 // Definição léxica
 Tipo: 'qint' | 'qbool' | 'qdouble' | 'qchar' | 'qvoid'; // Tipos de variáveis
 Numero: NumI | NumR; // Números inteiros ou reais
-Func: 'func'; // Palavra-chave para definir função
-RTN: 'return'; // Palavra-chave para retorno
+//Func: 'func'; // Palavra-chave para definir função
+RTN: 'queck'; // Palavra-chave para retorno
 AQ: '<quack>'; // Abre chaves
 FQ: '</quack>'; // Fecha chaves
 AP: '('; // Abre parêntese

@@ -67,6 +67,16 @@ public interface PATOListener extends ParseTreeListener {
 	 */
 	void exitRetorno(PATOParser.RetornoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PATOParser#funcao}.
+	 * @param ctx the parse tree
+	 */
+	void enterFuncao(PATOParser.FuncaoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PATOParser#funcao}.
+	 * @param ctx the parse tree
+	 */
+	void exitFuncao(PATOParser.FuncaoContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PATOParser#atribuicao}.
 	 * @param ctx the parse tree
 	 */
@@ -117,6 +127,16 @@ public interface PATOListener extends ParseTreeListener {
 	 */
 	void exitComandos(PATOParser.ComandosContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PATOParser#relacao}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelacao(PATOParser.RelacaoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PATOParser#relacao}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelacao(PATOParser.RelacaoContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PATOParser#condicoes}.
 	 * @param ctx the parse tree
 	 */
@@ -126,6 +146,16 @@ public interface PATOListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCondicoes(PATOParser.CondicoesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PATOParser#parametrosCondicao}.
+	 * @param ctx the parse tree
+	 */
+	void enterParametrosCondicao(PATOParser.ParametrosCondicaoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PATOParser#parametrosCondicao}.
+	 * @param ctx the parse tree
+	 */
+	void exitParametrosCondicao(PATOParser.ParametrosCondicaoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PATOParser#input}.
 	 * @param ctx the parse tree

@@ -114,16 +114,20 @@ OK
 ### 4. Definição Sintática: Especificação da gramática livre de contexto prevendo toda a estrutura gramatical da linguagem;
 
 ```java
-Tipo    -> qint | qbool | qdouble | qchar | if | else
-Rep     ->  while | for;
-Atr     ->  <-
-OpArit  ->  + | - | * | / | %;
-AQ      ->  <quack>
-FQ      ->  </quack>
-AP      ->  (
-FP      ->  )
-OpRel:  ->  < |  <> | <!> |  >
-OpBool: ->  E | OU;
+Tipo        -> 'qint' | 'qbool' | 'qdouble' | 'qchar' | 'qvoid' | 'if' | 'else'
+Rep         ->  'while' | 'for';
+Atr         ->  '<-';
+OpArit      ->  '+' | '-' | '*' | '/' | '%';
+AQ          ->  '<quack>'
+FQ          ->  '</quack>'
+AP          ->  '('
+FP          ->  ')'
+OpRel       ->  '<' |  '<>' | '<!>' |  '>' |  '>=' |  '<=';
+OpBool      ->  'E' | 'OU';
+
 ```
 
 ### 5.  Implementação do Analisador Sintático: Detalhes da implementação do analisador sintático semântico (incluir capturas de tela com descrição de tudo que foi gerado tanto pela equipe, quanto pelo ANTLR);
+OK
+
+### 6. Definição Semântica: Especificação das ações semânticas ( Checagem de tipo,  Checagem de variáveis não declaradas,  checagem de declarações duplicadas de variáveis, checagem de escopo de variáveis);
