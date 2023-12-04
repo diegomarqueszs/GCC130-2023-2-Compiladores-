@@ -1,4 +1,5 @@
-// Generated from PATO.g4 by ANTLR 4.7.2
+// Generated from PATO.G4 by ANTLR 4.7.2
+package GCCC130.src;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -171,18 +172,6 @@ public class PATOBaseListener implements PATOListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRegraComandosOpArit(PATOParser.RegraComandosOpAritContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRegraComandosOpArit(PATOParser.RegraComandosOpAritContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterRegraComandosInput(PATOParser.RegraComandosInputContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -202,18 +191,6 @@ public class PATOBaseListener implements PATOListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRegraComandosOutput(PATOParser.RegraComandosOutputContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRegraRelacao(PATOParser.RegraRelacaoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRegraRelacao(PATOParser.RegraRelacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

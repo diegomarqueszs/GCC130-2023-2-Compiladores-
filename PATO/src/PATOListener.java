@@ -1,4 +1,5 @@
-// Generated from PATO.g4 by ANTLR 4.7.2
+// Generated from PATO.G4 by ANTLR 4.7.2
+package GCCC130.src;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -163,18 +164,6 @@ public interface PATOListener extends ParseTreeListener {
 	 */
 	void exitRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code RegraComandosOpArit}
-	 * labeled alternative in {@link PATOParser#comandos}.
-	 * @param ctx the parse tree
-	 */
-	void enterRegraComandosOpArit(PATOParser.RegraComandosOpAritContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code RegraComandosOpArit}
-	 * labeled alternative in {@link PATOParser#comandos}.
-	 * @param ctx the parse tree
-	 */
-	void exitRegraComandosOpArit(PATOParser.RegraComandosOpAritContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code RegraComandosInput}
 	 * labeled alternative in {@link PATOParser#comandos}.
 	 * @param ctx the parse tree
@@ -198,18 +187,6 @@ public interface PATOListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRegraComandosOutput(PATOParser.RegraComandosOutputContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code RegraRelacao}
-	 * labeled alternative in {@link PATOParser#relacao}.
-	 * @param ctx the parse tree
-	 */
-	void enterRegraRelacao(PATOParser.RegraRelacaoContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code RegraRelacao}
-	 * labeled alternative in {@link PATOParser#relacao}.
-	 * @param ctx the parse tree
-	 */
-	void exitRegraRelacao(PATOParser.RegraRelacaoContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code RegraCondicoes}
 	 * labeled alternative in {@link PATOParser#condicoes}.

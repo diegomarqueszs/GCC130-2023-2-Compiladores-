@@ -1,4 +1,5 @@
-// Generated from PATO.g4 by ANTLR 4.7.2
+// Generated from PATO.G4 by ANTLR 4.7.2
+package GCCC130.src;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -101,13 +102,6 @@ public interface PATOVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code RegraComandosOpArit}
-	 * labeled alternative in {@link PATOParser#comandos}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRegraComandosOpArit(PATOParser.RegraComandosOpAritContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code RegraComandosInput}
 	 * labeled alternative in {@link PATOParser#comandos}.
 	 * @param ctx the parse tree
@@ -121,13 +115,6 @@ public interface PATOVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitRegraComandosOutput(PATOParser.RegraComandosOutputContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code RegraRelacao}
-	 * labeled alternative in {@link PATOParser#relacao}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRegraRelacao(PATOParser.RegraRelacaoContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code RegraCondicoes}
 	 * labeled alternative in {@link PATOParser#condicoes}.
