@@ -8,6 +8,7 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -48,7 +49,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     @Override
     public void exitRegraDeclaracao(PATOParser.RegraDeclaracaoContext ctx) {
         super.exitRegraDeclaracao(ctx);
-        System.out.println("Out declaração: "+ctx.getText());
+        //System.out.println("Out declaração: "+ctx.getText());
         String tipo = ctx.Tipo().getText();
         String var = ctx.Var().toString();
         if (tabelaSimbolos.containsKey(var)){
@@ -89,6 +90,29 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
                     hasError = true;
                     erros += ("\n└──ERRO 402 - O VALOR ATRIBUIDO A [ " + var + " ] NÃO É DO TIPO [ " + tipo + " ]" );
                 }
+            }
+        }
+    }
+
+    @Override
+    public void exitRegraOutput(PATOParser.RegraOutputContext ctx) {
+        super.exitRegraOutput(ctx);
+        String var = ctx.expressao().getText();
+        if(!tabelaSimbolos.containsKey(var)){
+            hasError = true;
+            erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
+        }
+    }
+
+    @Override
+    public void enterRegraInput(PATOParser.RegraInputContext ctx) {
+        super.exitRegraInput(ctx);
+        List<TerminalNode> varList = ctx.Var().stream().toList();
+        for (TerminalNode v : varList) {
+            String var = v.getText();
+            if(!tabelaSimbolos.containsKey(var)) {
+                hasError = true;
+                erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
             }
         }
     }

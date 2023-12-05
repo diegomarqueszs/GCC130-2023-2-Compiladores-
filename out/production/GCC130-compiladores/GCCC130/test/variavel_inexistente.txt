@@ -3,9 +3,11 @@ qint main()<quack>
     //qint x <- 0;
     //qint y<- FALSE;
     //qbool y <- "False";
-    qdouble x;
-    x <- "False";
-    //quackout<<x;
+    //qdouble x;
+    //x <- "False";
+    qint xis;
+    qint zzzzz;
+    quackin>>xis>>zzzzz;
 
     //Teste variavel duplicada
     //qint u;
