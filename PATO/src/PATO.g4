@@ -11,7 +11,7 @@ declaracao: Tipo Var (Atr expressao)? DELIM #RegraDeclaracao | string #RegraDecl
 retorno: RTN ( expressao | atribuicao | AP funcao OpArit funcao? FP ) DELIM #RegraRetorno;
 funcao: Var AP expressao  FP DELIM #RegraFuncao;
 atribuicao: Var Atr expressao DELIM? #RegraAtribuicao | string #RegraAtribuicaoString;
-string: 'qchar' Var (Atr '"' Var '"')? DELIM;
+string: 'qchar'? Var (Atr '"' Var '"')? DELIM;
 expressao: termo (OpArit termo)* #RegraExpressao;
 termo: fator (OpArit fator)* #RegraTermo;
 fator: Var #RegraFatorVariavel | Numero #RegraFatorNumero | funcao #RegraFatorFuncao;

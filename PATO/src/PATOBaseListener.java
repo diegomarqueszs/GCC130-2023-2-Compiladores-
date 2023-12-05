@@ -1,4 +1,4 @@
-// Generated from PATO.G4 by ANTLR 4.7.2
+// Generated from PATO.g4 by ANTLR 4.7.2
 package GCCC130.src;
 
 import org.antlr.v4.runtime.ParserRuleContext;

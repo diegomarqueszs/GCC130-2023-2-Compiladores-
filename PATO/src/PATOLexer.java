@@ -1,5 +1,4 @@
-// Generated from PATO.G4 by ANTLR 4.7.2
-
+// Generated from PATO.g4 by ANTLR 4.7.2
 package GCCC130.src;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.ATN;
@@ -92,7 +91,7 @@ public class PATOLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "PATO.G4"; }
+	public String getGrammarFileName() { return "PATO.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
