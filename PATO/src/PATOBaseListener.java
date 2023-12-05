@@ -76,6 +76,18 @@ public class PATOBaseListener implements PATOListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRegraDeclaracaoString(PATOParser.RegraDeclaracaoStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRegraDeclaracaoString(PATOParser.RegraDeclaracaoStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRegraRetorno(PATOParser.RegraRetornoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -107,6 +119,30 @@ public class PATOBaseListener implements PATOListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRegraAtribuicaoString(PATOParser.RegraAtribuicaoStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRegraAtribuicaoString(PATOParser.RegraAtribuicaoStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterString(PATOParser.StringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitString(PATOParser.StringContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

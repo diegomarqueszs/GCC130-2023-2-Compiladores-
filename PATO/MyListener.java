@@ -56,50 +56,39 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
             erros += ("\n└──ERRO 401 - Declaração duplicada! Variável " + var + " já declarada");
         }
         else {
-
-            tabelaSimbolos.put(var,tipo);
+            if(ctx.Atr()!=null){
+                if(verificaTipo(ctx.Tipo().getText(), ctx.expressao().getText())){
+                    tabelaSimbolos.put(var,tipo);
+                }else{
+                    hasError = true;
+                    erros += ("\n└──ERRO 402 - O VALOR ATRIBUIDO A [ " + var + " ] NÃO É DO TIPO [ " + tipo + " ]" );
+                }
+            }
+            else{
+                tabelaSimbolos.put(var,tipo);
+            }
         }
     }
 
-//    @Override
-//    public void exitRegraOutput(PATOParser.RegraOutputContext ctx) {
-//        super.exitRegraOutput(ctx);
-//        System.out.println("Out declaração: "+ctx.getText());
-//        String tipo = ctx.expressao().enterRule(enterRegraTermo());
-//        };
-//        System.out.println("variavel: " + tipo);
-//        if(tabelaSimbolos.containsKey(tipo)){
-//            System.out.println("Variavel existe");
-//        }else{
-//            System.out.println("Variavel não existe");
-//        }
-
-
-
-//    @Override
-//    public void exitRegraFatorVariavel(PATOParser.RegraFatorVariavelContext ctx) {
-//        super.enterRegraFatorVariavel(ctx);
-//
-//        System.out.println("Out declaração: "+ctx.getText());
-//        String var = ctx.Var().getText();
-//        System.out.println("variavel: " + var);
-//        System.out.println(tabelaSimbolos.toString());
-//        if (tabelaSimbolos.containsKey(var)){
-//            System.out.println("Variavel existe");
-//        }else{
-//            System.out.println("Variavel não existe");
-//        }
-//    }
 
 
     @Override
     public void exitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx) {
         super.enterRegraAtribuicao(ctx);
         String var = ctx.Var().getText();
+        String tipo = tabelaSimbolos.get(var);
+        String valor = ctx.expressao().getText();
         if(var!=null){
-            hasError = true;
             if (!tabelaSimbolos.containsKey(var)){
+                hasError = true;
                 erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
+            }
+            else{
+
+                if(!verificaTipo(tipo, valor)){
+                    hasError = true;
+                    erros += ("\n└──ERRO 402 - O VALOR ATRIBUIDO A [ " + var + " ] NÃO É DO TIPO [ " + tipo + " ]" );
+                }
             }
         }
     }
@@ -128,8 +117,29 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     public void HasERROR(){
         if(hasError){
             Quack();
-            System.out.println("ERROS: ");
+            System.out.print("ERROS: ");
             System.out.println(erros);
         }
     }
+
+    // Função auxiliar para verificar se uma string representa um número
+    private boolean isNumero(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private boolean verificaTipo(String tipo, String valor){
+        if(tipo.equals("qint") || tipo.equals("qdouble")){
+            return isNumero(valor);
+        } else if (tipo.equals("qbool")) {
+            return valor.equals("False") || valor.equals("True");
+        } else {
+            return tipo.equals("qchar");
+        }
+    }
+
 }

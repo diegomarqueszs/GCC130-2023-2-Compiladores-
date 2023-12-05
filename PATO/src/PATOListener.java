@@ -1,5 +1,7 @@
 // Generated from PATO.G4 by ANTLR 4.7.2
+
 package GCCC130.src;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -68,6 +70,18 @@ public interface PATOListener extends ParseTreeListener {
 	 */
 	void exitRegraDeclaracao(PATOParser.RegraDeclaracaoContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code RegraDeclaracaoString}
+	 * labeled alternative in {@link PATOParser#declaracao}.
+	 * @param ctx the parse tree
+	 */
+	void enterRegraDeclaracaoString(PATOParser.RegraDeclaracaoStringContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code RegraDeclaracaoString}
+	 * labeled alternative in {@link PATOParser#declaracao}.
+	 * @param ctx the parse tree
+	 */
+	void exitRegraDeclaracaoString(PATOParser.RegraDeclaracaoStringContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code RegraRetorno}
 	 * labeled alternative in {@link PATOParser#retorno}.
 	 * @param ctx the parse tree
@@ -103,6 +117,28 @@ public interface PATOListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code RegraAtribuicaoString}
+	 * labeled alternative in {@link PATOParser#atribuicao}.
+	 * @param ctx the parse tree
+	 */
+	void enterRegraAtribuicaoString(PATOParser.RegraAtribuicaoStringContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code RegraAtribuicaoString}
+	 * labeled alternative in {@link PATOParser#atribuicao}.
+	 * @param ctx the parse tree
+	 */
+	void exitRegraAtribuicaoString(PATOParser.RegraAtribuicaoStringContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PATOParser#string}.
+	 * @param ctx the parse tree
+	 */
+	void enterString(PATOParser.StringContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PATOParser#string}.
+	 * @param ctx the parse tree
+	 */
+	void exitString(PATOParser.StringContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code RegraExpressao}
 	 * labeled alternative in {@link PATOParser#expressao}.

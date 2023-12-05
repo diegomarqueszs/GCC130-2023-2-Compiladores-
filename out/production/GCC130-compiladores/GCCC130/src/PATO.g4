@@ -7,10 +7,11 @@ blocoFunc: Tipo Var AP parametros FP escopoFunc #NRegraBlocoDeFuncao;
 parametros: (Tipo Var (',' Tipo Var)*)?  #RegraParametros; // Lista de parâmetros de função
 escopoFunc: AQ (declaracao | comandos | condicoes | retorno | atribuicao | funcao)+ FQ #NRegraEscopoDeclaracao;
 
-declaracao: Tipo Var (Atr expressao)? DELIM #RegraDeclaracao;
+declaracao: Tipo Var (Atr expressao)? DELIM #RegraDeclaracao | string #RegraDeclaracaoString;
 retorno: RTN ( expressao | atribuicao | AP funcao OpArit funcao? FP ) DELIM #RegraRetorno;
 funcao: Var AP expressao  FP DELIM #RegraFuncao;
-atribuicao: Var Atr expressao DELIM? #RegraAtribuicao;
+atribuicao: Var Atr expressao DELIM? #RegraAtribuicao | string #RegraAtribuicaoString;
+string: 'qchar' Var (Atr '"' Var '"')? DELIM;
 expressao: termo (OpArit termo)* #RegraExpressao;
 termo: fator (OpArit fator)* #RegraTermo;
 fator: Var #RegraFatorVariavel | Numero #RegraFatorNumero | funcao #RegraFatorFuncao;

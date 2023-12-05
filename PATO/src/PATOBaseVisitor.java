@@ -54,6 +54,13 @@ public class PATOBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements P
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitRegraDeclaracaoString(PATOParser.RegraDeclaracaoStringContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitRegraRetorno(PATOParser.RegraRetornoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -69,6 +76,20 @@ public class PATOBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements P
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitRegraAtribuicaoString(PATOParser.RegraAtribuicaoStringContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitString(PATOParser.StringContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

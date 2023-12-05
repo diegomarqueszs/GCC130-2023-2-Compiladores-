@@ -1,5 +1,7 @@
 // Generated from PATO.G4 by ANTLR 4.7.2
+
 package GCCC130.src;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -46,6 +48,13 @@ public interface PATOVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRegraDeclaracao(PATOParser.RegraDeclaracaoContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code RegraDeclaracaoString}
+	 * labeled alternative in {@link PATOParser#declaracao}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRegraDeclaracaoString(PATOParser.RegraDeclaracaoStringContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code RegraRetorno}
 	 * labeled alternative in {@link PATOParser#retorno}.
 	 * @param ctx the parse tree
@@ -66,6 +75,19 @@ public interface PATOVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code RegraAtribuicaoString}
+	 * labeled alternative in {@link PATOParser#atribuicao}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRegraAtribuicaoString(PATOParser.RegraAtribuicaoStringContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PATOParser#string}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitString(PATOParser.StringContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code RegraExpressao}
 	 * labeled alternative in {@link PATOParser#expressao}.
