@@ -200,7 +200,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     }
 
     // Função auxiliar para verificar se uma string representa um número
-    private boolean isNumero(String str) {
+    private boolean isDouble(String str) {
         try {
             Double.parseDouble(str);
             return true;
@@ -209,10 +209,24 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         }
     }
 
+    private boolean isInt(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     private boolean verificaTipo(String tipo, String valor){
-        if(tipo.equals("qint") || tipo.equals("qdouble")){
-            return isNumero(valor);
-        } else if (tipo.equals("qbool")) {
+        if(tipo.equals("qint")){
+
+            return isInt(valor);
+        }
+        else if (tipo.equals("qdouble")){
+            return isDouble(valor);
+        }
+        else if (tipo.equals("qbool")) {
             return valor.equals("False") || valor.equals("True");
         } else {
             return tipo.equals("qchar");

@@ -3,6 +3,5 @@ qint main()<quack>
     if(i<!>0)<quack>
         qint i;
     </quack>
-    qint i;
-    qbool u <- 0;
+    i <- 0.0;
 </quack>
