@@ -4,5 +4,9 @@ qint main()<quack>
 
 qint main()<quack>
     qint i;
-    qint i;
+    if(i<!>0)<quack>
+        qint i;
+    </quack>
+    qint u;
+    u <- 0;
 </quack>

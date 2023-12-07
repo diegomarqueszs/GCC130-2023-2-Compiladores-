@@ -123,6 +123,18 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     }
 
     @Override
+    public void enterRegraFatorVariavel(PATOParser.RegraFatorVariavelContext ctx) {
+        super.enterRegraFatorVariavel(ctx);
+        String var = ctx.Var().getText();
+        Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
+        if(!escopoAtual.containsKey(var)){
+            hasError = true;
+            erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
+        }
+
+    }
+
+    @Override
     public void visitTerminal(TerminalNode terminalNode) {
 
     }
@@ -154,6 +166,20 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         super.exitNRegraBlocoDeFuncao(ctx);
         tabelaSimbolosStack.pop();
     }
+
+    @Override
+    public void enterNRegraEscopoDeclaracao(PATOParser.NRegraEscopoDeclaracaoContext ctx) {
+        super.enterNRegraEscopoDeclaracao(ctx);
+        tabelaSimbolosStack.push(new HashMap<>());
+    }
+
+    @Override
+    public void exitNRegraEscopoDeclaracao(PATOParser.NRegraEscopoDeclaracaoContext ctx) {
+        super.enterNRegraEscopoDeclaracao(ctx);
+        tabelaSimbolosStack.pop();
+    }
+
+
 
     //VERIFICA SE HÁ ERROS
     public void HasERROR(){
