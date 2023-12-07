@@ -38,6 +38,7 @@ public class AnnalisaSemantic {
             ParseTree ast = parser.main();
 
             System.out.println(ast.toStringTree());
+            System.out.println("QUEEECK: COMPILADO COM SUCESSO!");
         }catch(IOException e){
             throw new RuntimeException("ERRO SINTÂTICO AO TENTAR COMPILAR!");
         }
@@ -54,6 +55,7 @@ public class AnnalisaSemantic {
         }
         else {
             System.out.println("Tabela: " + listener.getTabelaSimbolos().toString());
+            System.out.println("QUEEECK: ANALISADO SEMANTICAMENTE COM SUCESSO!");
         }
     }
     public static void analisadorLexico(String filename){

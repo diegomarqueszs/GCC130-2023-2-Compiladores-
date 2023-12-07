@@ -73,6 +73,20 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         }
     }
 
+    @Override
+    public void exitString(PATOParser.StringContext ctx) {
+        super.exitString(ctx);
+        String var = ctx.Var().get(0).toString();
+        System.out.println("VARIAVELLLLL: " + var);
+        Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
+        String tipo = escopoAtual.get(var);
+        if (escopoAtual.containsKey(var)){
+            hasError = true;
+            erros += ("\n└──ERRO 401 - Declaração duplicada! Variável " + var + " já declarada");
+        }else{
+            escopoAtual.put(var,tipo);
+        }
+    }
 
     //Verifica variável não declaradas toda vez que sai da regra de atribuição
     @Override
@@ -94,6 +108,8 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
                     erros += ("\n└──ERRO 402 - O VALOR ATRIBUIDO A [ " + var + " ] NÃO É DO TIPO [ " + tipo + " ]" );
                 }
             }
+        }else{
+            escopoAtual.put(var,tipo);
         }
     }
 

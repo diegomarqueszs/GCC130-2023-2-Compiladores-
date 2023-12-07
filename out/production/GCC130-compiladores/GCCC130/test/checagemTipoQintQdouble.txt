@@ -1,0 +1,5 @@
+qint main() <quack>
+	qint variavelExemplo1;
+	qdouble variavelExemplo2 <- 2.0;
+	variavelExemplo1 <- variavelExemplo2;
+</quack>

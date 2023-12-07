@@ -12,7 +12,7 @@ retorno: RTN ( expressao | atribuicao | AP funcao_encapsulada OpArit funcao_enca
 funcao: Var AP expressao  FP DELIM #RegraFuncao;
 funcao_encapsulada: Var AP expressao  FP #RegraFuncaoEncapsulada;
 atribuicao: Var Atr expressao DELIM? #RegraAtribuicao | string #RegraAtribuicaoString;
-string: 'qchar'? Var (Atr '"' Var '"')? DELIM;
+string: Tipo? Var (Atr '"' Var '"')? DELIM;
 expressao: termo (OpArit termo)* #RegraExpressao;
 termo: fator (OpArit fator)* #RegraTermo;
 fator: Var #RegraFatorVariavel | Numero #RegraFatorNumero | funcao_encapsulada #RegraFatorFuncaoEncapsulada;

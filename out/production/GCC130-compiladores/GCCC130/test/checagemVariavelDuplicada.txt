@@ -1,0 +1,9 @@
+qint main()<quack>
+	qint variavelExemplo <- 1;
+	if(variavelExemplo<!>0) <quack>
+		qint variavelExemplo;
+	</quack>
+	qint variavelExemplo;
+	qint u;
+	u <- 0;
+</quack>
