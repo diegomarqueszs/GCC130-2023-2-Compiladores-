@@ -182,12 +182,17 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
 
 
     //VERIFICA SE HÁ ERROS
-    public void HasERROR(){
+    private void HasERROR(){
         if(hasError){
             Quack();
             System.out.print("ERROS: ");
             System.out.println(erros);
         }
+    }
+
+    public boolean getError(){
+        HasERROR();
+        return hasError;
     }
 
     // Função auxiliar para verificar se uma string representa um número
