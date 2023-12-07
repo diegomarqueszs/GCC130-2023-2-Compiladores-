@@ -1,13 +1,5 @@
-qint main()<quack>
-   qint i;
-</quack>
-
-qint main()<quack>
-    qint i;
-    if(i<!>0)<quack>
-        qint i;
-    </quack>
-    qint i;
-    qint u;
-    u <- 0;
+qint main() <quack>
+	qchar variavelExemplo1;
+	qchar variavelExemplo2 <-"teste";
+    quackin>>variavelExemplo2;
 </quack>
