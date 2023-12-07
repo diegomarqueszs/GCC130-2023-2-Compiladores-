@@ -61,7 +61,6 @@ public class AnnalisaSemantic {
     }
 
     public static int menu(){
-        System.out.println("BEM VINDO AO PATO! TUDO AQUI FUNCIONA IGUAL UM PATO, TUDO MAIS OU MENOS!");
         System.out.println("╔═════════════════════════════════════════════╗");
         System.out.println("║                MENU PRINCIPAL               ║");
         System.out.println("╠═════════════════════════════════════════════╣");
@@ -78,6 +77,7 @@ public class AnnalisaSemantic {
 
 
     public static void main (String[] args){
+        System.out.println("BEM VINDO AO PATO! TUDO AQUI FUNCIONA IGUAL UM PATO, TUDO MAIS OU MENOS!");
         int opcao;
         String filename = "F:\\GCC130-compiladores\\PATO\\test\\variavel_inexistente.txt";
         do{
