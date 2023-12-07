@@ -58,56 +58,6 @@
     </quack>
 ```
 
-```java
-qvoid mergeSort(qint[] arrayEntrada) <quack>
-	qint tamanhoArray <- arrayEntrada.qlength;
-	if (tamanhoArray > 2) <quack> 
-		qint <- tamanho/2;
-		qint [] inicio <- new qint[meio];
-		qint [] fim <- new qint[tamanhoArray - meio];
-		for (qint i <- 0; i < meio; i++) <quack>
-			inicio[i] <- arrayEntrada[i];
-		</quack>
-		for (qint i <- meio; i < tamanhoArray; i++) <quack>
-			fim[i - meio] <- arrayEntrada[i];
-		</quack>
-		mergeSort(inicio);
-		mergeSort(fim);
-		
-		merge(arrayEntrada, inicio, fim);
-	</quack>
-</quack>
-
-
-qvoid merge(qint[] arrayEntrada, qint inicio[], qint fim[]) <quack>
-	qint tamanhoInicio <- inicio.qlength;
-	qint tamanhoFim <- fim.qlength;
-	qint i <- 0, j <- 0, k <- 0;
-	
-	while(i < tamanhoInicio E j < tamanhoFim) <quack>
-		if (inicio[i] <= fim[j]) <quack>
-			arrayEntrada[k] <- inicio[i];
-			i++;
-		</quack> else <quack> 
-			arrayEntrada[k] <- fim[j];
-			j++;
-		</quack>
-		k++;
-	</quack>
-	while(i < tamanhoInicio) <quack>
-		arrayEntrada[k] <- inicio[i];
-		i++;
-		k++;
-	</quack>
-	while(j < tamanhoFim) <quack>
-		arrayEntrada[k] <- fim[k];
-		j++;
-		k++;
-	</quack>
-</quack>
-
-```
-
 ### 2. Definição Léxica: lexemas aceitos, classes de lexemas e seus padrões de identificação:
 
 | padrão                                                  | classes                                               | lexemas |
@@ -146,3 +96,69 @@ OpBool      ->  'E' | 'OU';
 OK
 
 ### 6. Definição Semântica: Especificação das ações semânticas ( Checagem de tipo,  Checagem de variáveis não declaradas,  checagem de declarações duplicadas de variáveis, checagem de escopo de variáveis);
+### 6. Definição Semântica: Especificação das ações semânticas ( Checagem de tipo,  Checagem de variáveis não declaradas,  checagem de declarações duplicadas de variáveis, checagem de escopo de variáveis);
+
+**402 - Checagem de tipo**
+Não é permitido atribuir valores de tipo diferente ao tipo da variável. Exemplo:
+```java
+qint main() <quack>
+	qint variavelExemplo1;
+	qdouble variavelExemplo2 <- 2.0;
+	variavelExemplo1 <- variavelExemplo2;
+</quack>
+```
+
+Esse código gerará a seguinte mensagem de erro:
+```Bash
+└──ERRO 402 - O VALOR ATRIBUIDO A [ variavelExemplo1 ] NÃO É DO TIPO [ qint ]
+```
+
+**404 - Variável não declarada (e checagem de escopo)**
+Não é permitido atribuir valores ou realizar operações com variáveis que não foram definidas ou que estão em um escopo diferente. Exemplo:
+
+```java
+qint main() <quack>
+	qbool variavelExemplo1 <- true;
+	if(variavelExemplo <> true) <quack>
+		qint variavelExemplo <- 1;
+	</quack> else <quack>
+		qint variavelExemplo <- 0;
+	</quack>
+	quackout << variavelExemplo;
+	
+</quack>
+```
+
+Caso isso ocorra, será mostrado erro do tipo:
+
+```Bash
+└──ERRO 403 - VARIAVEL [ variavelExemplo ] NÃO DECLARADA!
+```
+
+**401 - Declaração duplicada**
+Não é permitido definição de uma mesma variável no mesmo escopo. Exemplo:
+```java
+qint main()<quack>
+	qint variavelExemplo;
+	if(i<!>0) <quack>
+		qint variavelExemplo;
+	</quack>
+	qint variavelExemplo;
+	qint u;
+	u <- 0;
+</quack>
+```
+
+
+Caso isso ocorra, será mostrado erro do tipo:
+```Bash
+└──ERRO 401 - Declaração duplicada! Variável variavelExemplo já declarada
+```
+
+```Java
+qint main() <quack>
+	qint variavelExemplo1;
+	qdouble variavelExemplo2 <- 2.0;
+	variavelExemplo1 <- variavelExemplo2;
+</quack>
+```
