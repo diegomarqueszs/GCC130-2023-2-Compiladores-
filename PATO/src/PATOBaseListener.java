@@ -1,6 +1,5 @@
 // Generated from PATO.G4 by ANTLR 4.7.2
 package GCCC130.src;
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;

@@ -1,17 +1,13 @@
 // Generated from PATO.G4 by ANTLR 4.7.2
 package GCCC130.src;
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNDeserializer;
-import org.antlr.v4.runtime.atn.ParserATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class PATOParser extends Parser {
@@ -21,9 +17,9 @@ public class PATOParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, Tipo=3, Numero=4, RTN=5, AQ=6, FQ=7, AP=8, FP=9, OpRel=10, 
-		OpBool=11, Cond=12, OpArit=13, DELIM=14, COMMA=15, Atr=16, QIN=17, QOUT=18, 
-		OPIN=19, OPOUT=20, Var=21, NumI=22, NumR=23, COMMENT=24, WS=25;
+		T__0=1, Tipo=2, Numero=3, RTN=4, AQ=5, FQ=6, AP=7, FP=8, OpRel=9, OpBool=10, 
+		Cond=11, OpArit=12, DELIM=13, COMMA=14, Atr=15, QIN=16, QOUT=17, OPIN=18, 
+		OPOUT=19, Var=20, NumI=21, NumR=22, COMMENT=23, WS=24;
 	public static final int
 		RULE_main = 0, RULE_blocoFunc = 1, RULE_parametros = 2, RULE_escopoFunc = 3, 
 		RULE_declaracao = 4, RULE_retorno = 5, RULE_funcao = 6, RULE_funcao_encapsulada = 7, 
@@ -42,15 +38,15 @@ public class PATOParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'qchar'", "'\"'", null, null, "'queck'", "'<quack>'", "'</quack>'", 
-			"'('", "')'", null, null, null, null, "';'", "','", "'<-'", "'quackin'", 
-			"'quackout'", "'>>'", "'<<'"
+			null, "'\"'", null, null, "'queck'", "'<quack>'", "'</quack>'", "'('", 
+			"')'", null, null, null, null, "';'", "','", "'<-'", "'quackin'", "'quackout'", 
+			"'>>'", "'<<'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "Tipo", "Numero", "RTN", "AQ", "FQ", "AP", "FP", "OpRel", 
+			null, null, "Tipo", "Numero", "RTN", "AQ", "FQ", "AP", "FP", "OpRel", 
 			"OpBool", "Cond", "OpArit", "DELIM", "COMMA", "Atr", "QIN", "QOUT", "OPIN", 
 			"OPOUT", "Var", "NumI", "NumR", "COMMENT", "WS"
 		};
@@ -464,7 +460,7 @@ public class PATOParser extends Parser {
 				setState(72); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << Tipo) | (1L << RTN) | (1L << Cond) | (1L << QIN) | (1L << QOUT) | (1L << Var))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Tipo) | (1L << RTN) | (1L << Cond) | (1L << QIN) | (1L << QOUT) | (1L << Var))) != 0) );
 			setState(74);
 			match(FQ);
 			}
@@ -541,8 +537,8 @@ public class PATOParser extends Parser {
 		try {
 			setState(84);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case Tipo:
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			case 1:
 				_localctx = new RegraDeclaracaoContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
@@ -566,8 +562,7 @@ public class PATOParser extends Parser {
 				match(DELIM);
 				}
 				break;
-			case T__0:
-			case Var:
+			case 2:
 				_localctx = new RegraDeclaracaoStringContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
@@ -575,8 +570,6 @@ public class PATOParser extends Parser {
 				string();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -934,6 +927,7 @@ public class PATOParser extends Parser {
 			return getToken(PATOParser.Var, i);
 		}
 		public TerminalNode DELIM() { return getToken(PATOParser.DELIM, 0); }
+		public TerminalNode Tipo() { return getToken(PATOParser.Tipo, 0); }
 		public TerminalNode Atr() { return getToken(PATOParser.Atr, 0); }
 		public StringContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -964,10 +958,10 @@ public class PATOParser extends Parser {
 			setState(122);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__0) {
+			if (_la==Tipo) {
 				{
 				setState(121);
-				match(T__0);
+				match(Tipo);
 				}
 			}
 
@@ -981,11 +975,11 @@ public class PATOParser extends Parser {
 				setState(125);
 				match(Atr);
 				setState(126);
-				match(T__1);
+				match(T__0);
 				setState(127);
 				match(Var);
 				setState(128);
-				match(T__1);
+				match(T__0);
 				}
 			}
 
@@ -1697,7 +1691,7 @@ public class PATOParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\33\u00cb\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32\u00cb\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\3\2\7\2(\n\2\f\2\16\2+\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3"+
@@ -1717,46 +1711,46 @@ public class PATOParser extends Parser {
 		"g\3\2\2\2\20m\3\2\2\2\22y\3\2\2\2\24|\3\2\2\2\26\u0087\3\2\2\2\30\u008f"+
 		"\3\2\2\2\32\u009a\3\2\2\2\34\u009e\3\2\2\2\36\u00a0\3\2\2\2 \u00b2\3\2"+
 		"\2\2\"\u00b6\3\2\2\2$\u00c2\3\2\2\2&(\5\4\3\2\'&\3\2\2\2(+\3\2\2\2)\'"+
-		"\3\2\2\2)*\3\2\2\2*,\3\2\2\2+)\3\2\2\2,-\7\2\2\3-\3\3\2\2\2./\7\5\2\2"+
-		"/\60\7\27\2\2\60\61\7\n\2\2\61\62\5\6\4\2\62\63\7\13\2\2\63\64\5\b\5\2"+
-		"\64\5\3\2\2\2\65\66\7\5\2\2\66<\7\27\2\2\678\7\21\2\289\7\5\2\29;\7\27"+
+		"\3\2\2\2)*\3\2\2\2*,\3\2\2\2+)\3\2\2\2,-\7\2\2\3-\3\3\2\2\2./\7\4\2\2"+
+		"/\60\7\26\2\2\60\61\7\t\2\2\61\62\5\6\4\2\62\63\7\n\2\2\63\64\5\b\5\2"+
+		"\64\5\3\2\2\2\65\66\7\4\2\2\66<\7\26\2\2\678\7\20\2\289\7\4\2\29;\7\26"+
 		"\2\2:\67\3\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2\2=@\3\2\2\2><\3\2\2\2?\65"+
-		"\3\2\2\2?@\3\2\2\2@\7\3\2\2\2AH\7\b\2\2BI\5\n\6\2CI\5\34\17\2DI\5\36\20"+
+		"\3\2\2\2?@\3\2\2\2@\7\3\2\2\2AH\7\7\2\2BI\5\n\6\2CI\5\34\17\2DI\5\36\20"+
 		"\2EI\5\f\7\2FI\5\22\n\2GI\5\16\b\2HB\3\2\2\2HC\3\2\2\2HD\3\2\2\2HE\3\2"+
-		"\2\2HF\3\2\2\2HG\3\2\2\2IJ\3\2\2\2JH\3\2\2\2JK\3\2\2\2KL\3\2\2\2LM\7\t"+
-		"\2\2M\t\3\2\2\2NO\7\5\2\2OR\7\27\2\2PQ\7\22\2\2QS\5\26\f\2RP\3\2\2\2R"+
-		"S\3\2\2\2ST\3\2\2\2TW\7\20\2\2UW\5\24\13\2VN\3\2\2\2VU\3\2\2\2W\13\3\2"+
-		"\2\2Xc\7\7\2\2Yd\5\26\f\2Zd\5\22\n\2[\\\7\n\2\2\\]\5\20\t\2]_\7\17\2\2"+
-		"^`\5\20\t\2_^\3\2\2\2_`\3\2\2\2`a\3\2\2\2ab\7\13\2\2bd\3\2\2\2cY\3\2\2"+
-		"\2cZ\3\2\2\2c[\3\2\2\2de\3\2\2\2ef\7\20\2\2f\r\3\2\2\2gh\7\27\2\2hi\7"+
-		"\n\2\2ij\5\26\f\2jk\7\13\2\2kl\7\20\2\2l\17\3\2\2\2mn\7\27\2\2no\7\n\2"+
-		"\2op\5\26\f\2pq\7\13\2\2q\21\3\2\2\2rs\7\27\2\2st\7\22\2\2tv\5\26\f\2"+
-		"uw\7\20\2\2vu\3\2\2\2vw\3\2\2\2wz\3\2\2\2xz\5\24\13\2yr\3\2\2\2yx\3\2"+
-		"\2\2z\23\3\2\2\2{}\7\3\2\2|{\3\2\2\2|}\3\2\2\2}~\3\2\2\2~\u0083\7\27\2"+
-		"\2\177\u0080\7\22\2\2\u0080\u0081\7\4\2\2\u0081\u0082\7\27\2\2\u0082\u0084"+
-		"\7\4\2\2\u0083\177\3\2\2\2\u0083\u0084\3\2\2\2\u0084\u0085\3\2\2\2\u0085"+
-		"\u0086\7\20\2\2\u0086\25\3\2\2\2\u0087\u008c\5\30\r\2\u0088\u0089\7\17"+
+		"\2\2HF\3\2\2\2HG\3\2\2\2IJ\3\2\2\2JH\3\2\2\2JK\3\2\2\2KL\3\2\2\2LM\7\b"+
+		"\2\2M\t\3\2\2\2NO\7\4\2\2OR\7\26\2\2PQ\7\21\2\2QS\5\26\f\2RP\3\2\2\2R"+
+		"S\3\2\2\2ST\3\2\2\2TW\7\17\2\2UW\5\24\13\2VN\3\2\2\2VU\3\2\2\2W\13\3\2"+
+		"\2\2Xc\7\6\2\2Yd\5\26\f\2Zd\5\22\n\2[\\\7\t\2\2\\]\5\20\t\2]_\7\16\2\2"+
+		"^`\5\20\t\2_^\3\2\2\2_`\3\2\2\2`a\3\2\2\2ab\7\n\2\2bd\3\2\2\2cY\3\2\2"+
+		"\2cZ\3\2\2\2c[\3\2\2\2de\3\2\2\2ef\7\17\2\2f\r\3\2\2\2gh\7\26\2\2hi\7"+
+		"\t\2\2ij\5\26\f\2jk\7\n\2\2kl\7\17\2\2l\17\3\2\2\2mn\7\26\2\2no\7\t\2"+
+		"\2op\5\26\f\2pq\7\n\2\2q\21\3\2\2\2rs\7\26\2\2st\7\21\2\2tv\5\26\f\2u"+
+		"w\7\17\2\2vu\3\2\2\2vw\3\2\2\2wz\3\2\2\2xz\5\24\13\2yr\3\2\2\2yx\3\2\2"+
+		"\2z\23\3\2\2\2{}\7\4\2\2|{\3\2\2\2|}\3\2\2\2}~\3\2\2\2~\u0083\7\26\2\2"+
+		"\177\u0080\7\21\2\2\u0080\u0081\7\3\2\2\u0081\u0082\7\26\2\2\u0082\u0084"+
+		"\7\3\2\2\u0083\177\3\2\2\2\u0083\u0084\3\2\2\2\u0084\u0085\3\2\2\2\u0085"+
+		"\u0086\7\17\2\2\u0086\25\3\2\2\2\u0087\u008c\5\30\r\2\u0088\u0089\7\16"+
 		"\2\2\u0089\u008b\5\30\r\2\u008a\u0088\3\2\2\2\u008b\u008e\3\2\2\2\u008c"+
 		"\u008a\3\2\2\2\u008c\u008d\3\2\2\2\u008d\27\3\2\2\2\u008e\u008c\3\2\2"+
-		"\2\u008f\u0094\5\32\16\2\u0090\u0091\7\17\2\2\u0091\u0093\5\32\16\2\u0092"+
+		"\2\u008f\u0094\5\32\16\2\u0090\u0091\7\16\2\2\u0091\u0093\5\32\16\2\u0092"+
 		"\u0090\3\2\2\2\u0093\u0096\3\2\2\2\u0094\u0092\3\2\2\2\u0094\u0095\3\2"+
-		"\2\2\u0095\31\3\2\2\2\u0096\u0094\3\2\2\2\u0097\u009b\7\27\2\2\u0098\u009b"+
-		"\7\6\2\2\u0099\u009b\5\20\t\2\u009a\u0097\3\2\2\2\u009a\u0098\3\2\2\2"+
+		"\2\2\u0095\31\3\2\2\2\u0096\u0094\3\2\2\2\u0097\u009b\7\26\2\2\u0098\u009b"+
+		"\7\5\2\2\u0099\u009b\5\20\t\2\u009a\u0097\3\2\2\2\u009a\u0098\3\2\2\2"+
 		"\u009a\u0099\3\2\2\2\u009b\33\3\2\2\2\u009c\u009f\5\"\22\2\u009d\u009f"+
 		"\5$\23\2\u009e\u009c\3\2\2\2\u009e\u009d\3\2\2\2\u009f\35\3\2\2\2\u00a0"+
-		"\u00ac\7\16\2\2\u00a1\u00a2\7\n\2\2\u00a2\u00a7\5 \21\2\u00a3\u00a4\7"+
-		"\r\2\2\u00a4\u00a6\5 \21\2\u00a5\u00a3\3\2\2\2\u00a6\u00a9\3\2\2\2\u00a7"+
+		"\u00ac\7\r\2\2\u00a1\u00a2\7\t\2\2\u00a2\u00a7\5 \21\2\u00a3\u00a4\7\f"+
+		"\2\2\u00a4\u00a6\5 \21\2\u00a5\u00a3\3\2\2\2\u00a6\u00a9\3\2\2\2\u00a7"+
 		"\u00a5\3\2\2\2\u00a7\u00a8\3\2\2\2\u00a8\u00aa\3\2\2\2\u00a9\u00a7\3\2"+
-		"\2\2\u00aa\u00ab\7\13\2\2\u00ab\u00ad\3\2\2\2\u00ac\u00a1\3\2\2\2\u00ac"+
+		"\2\2\u00aa\u00ab\7\n\2\2\u00ab\u00ad\3\2\2\2\u00ac\u00a1\3\2\2\2\u00ac"+
 		"\u00ad\3\2\2\2\u00ad\u00b0\3\2\2\2\u00ae\u00b1\5\f\7\2\u00af\u00b1\5\b"+
 		"\5\2\u00b0\u00ae\3\2\2\2\u00b0\u00af\3\2\2\2\u00b1\37\3\2\2\2\u00b2\u00b3"+
-		"\5\26\f\2\u00b3\u00b4\7\f\2\2\u00b4\u00b5\5\26\f\2\u00b5!\3\2\2\2\u00b6"+
-		"\u00b7\7\23\2\2\u00b7\u00b8\7\25\2\2\u00b8\u00bd\7\27\2\2\u00b9\u00ba"+
-		"\7\25\2\2\u00ba\u00bc\7\27\2\2\u00bb\u00b9\3\2\2\2\u00bc\u00bf\3\2\2\2"+
+		"\5\26\f\2\u00b3\u00b4\7\13\2\2\u00b4\u00b5\5\26\f\2\u00b5!\3\2\2\2\u00b6"+
+		"\u00b7\7\22\2\2\u00b7\u00b8\7\24\2\2\u00b8\u00bd\7\26\2\2\u00b9\u00ba"+
+		"\7\24\2\2\u00ba\u00bc\7\26\2\2\u00bb\u00b9\3\2\2\2\u00bc\u00bf\3\2\2\2"+
 		"\u00bd\u00bb\3\2\2\2\u00bd\u00be\3\2\2\2\u00be\u00c0\3\2\2\2\u00bf\u00bd"+
-		"\3\2\2\2\u00c0\u00c1\7\20\2\2\u00c1#\3\2\2\2\u00c2\u00c3\7\24\2\2\u00c3"+
-		"\u00c6\7\26\2\2\u00c4\u00c7\5\26\f\2\u00c5\u00c7\7\27\2\2\u00c6\u00c4"+
-		"\3\2\2\2\u00c6\u00c5\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8\u00c9\7\20\2\2"+
+		"\3\2\2\2\u00c0\u00c1\7\17\2\2\u00c1#\3\2\2\2\u00c2\u00c3\7\23\2\2\u00c3"+
+		"\u00c6\7\25\2\2\u00c4\u00c7\5\26\f\2\u00c5\u00c7\7\26\2\2\u00c6\u00c4"+
+		"\3\2\2\2\u00c6\u00c5\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8\u00c9\7\17\2\2"+
 		"\u00c9%\3\2\2\2\30)<?HJRV_cvy|\u0083\u008c\u0094\u009a\u009e\u00a7\u00ac"+
 		"\u00b0\u00bd\u00c6";
 	public static final ATN _ATN =
