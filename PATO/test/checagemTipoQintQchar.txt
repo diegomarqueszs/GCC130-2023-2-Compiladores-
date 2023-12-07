@@ -1,0 +1,5 @@
+qint main() <quack>
+	qint variavelExemplo1;
+	qchar variavelExemplo2 <- "teste";
+	variavelExemplo1 <- variavelExemplo2; // atribuicao de uma variavel qchar a uma qint
+</quack>

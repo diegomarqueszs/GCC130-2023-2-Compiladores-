@@ -1,4 +1,4 @@
-qqint main() <quack>
+qint main() <quack>
  	qbool variavelExemplo1 <- True;
  	if(variavelExemplo1 <> True) <quack>
  		qint variavelExemplo <- 1;
