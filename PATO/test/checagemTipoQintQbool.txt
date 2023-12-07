@@ -1,0 +1,5 @@
+qint main() <quack>
+	qint variavelExemplo1;
+	qbool variavelExemplo2 <- False;
+	variavelExemplo1 <- variavelExemplo2;
+</quack>
