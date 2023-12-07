@@ -1,20 +1,8 @@
 qint main()<quack>
-    //Teste variavel inexistente
-    //qint x <- 0;
-    //qint y<- FALSE;
-    //qbool y <- "False";
-    //qdouble x;
-    //x <- "False";
-    qint xis;
-    qint zzzzz;
-    quackin>>xis>>zzzzz;
+   qint i;
+</quack>
 
-    //Teste variavel duplicada
-    qint u;
-    qbool u;
-    //qint u;
-    //qbool u;
-
-    //Teste funcao
-    //fib(1);
+qint main()<quack>
+    qint i;
+    qint i;
 </quack>

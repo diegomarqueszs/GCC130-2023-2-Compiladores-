@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 
 public class MyListener extends PATOBaseListener implements ParseTreeListener {
@@ -27,10 +28,10 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
                 "          :--:                                                                                      \n");
     }
 
-    private Map<String,String> tabelaSimbolos = new HashMap<String,String>();
+    private Stack<Map<String, String>> tabelaSimbolosStack = new Stack<>();
 
     public Map<String, String> getTabelaSimbolos() {
-        return tabelaSimbolos;
+        return tabelaSimbolosStack.isEmpty() ? new HashMap<>() : tabelaSimbolosStack.peek();
     }
 
     @Override
@@ -52,21 +53,22 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         //System.out.println("Out declaração: "+ctx.getText());
         String tipo = ctx.Tipo().getText();
         String var = ctx.Var().toString();
-        if (tabelaSimbolos.containsKey(var)){
+        Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
+        if (escopoAtual.containsKey(var)){
             hasError = true;
             erros += ("\n└──ERRO 401 - Declaração duplicada! Variável " + var + " já declarada");
         }
         else {
             if(ctx.Atr()!=null){
                 if(verificaTipo(ctx.Tipo().getText(), ctx.expressao().getText())){
-                    tabelaSimbolos.put(var,tipo);
+                    escopoAtual.put(var,tipo);
                 }else{
                     hasError = true;
                     erros += ("\n└──ERRO 402 - O VALOR ATRIBUIDO A [ " + var + " ] NÃO É DO TIPO [ " + tipo + " ]" );
                 }
             }
             else{
-                tabelaSimbolos.put(var,tipo);
+                escopoAtual.put(var,tipo);
             }
         }
     }
@@ -77,10 +79,11 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     public void exitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx) {
         super.enterRegraAtribuicao(ctx);
         String var = ctx.Var().getText();
-        String tipo = tabelaSimbolos.get(var);
+        Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
+        String tipo = escopoAtual.get(var);
         String valor = ctx.expressao().getText();
         if(var!=null){
-            if (!tabelaSimbolos.containsKey(var)){
+            if (!escopoAtual.containsKey(var)){
                 hasError = true;
                 erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
             }
@@ -98,7 +101,8 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     public void exitRegraOutput(PATOParser.RegraOutputContext ctx) {
         super.exitRegraOutput(ctx);
         String var = ctx.expressao().getText();
-        if(!tabelaSimbolos.containsKey(var)){
+        Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
+        if(!escopoAtual.containsKey(var)){
             hasError = true;
             erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
         }
@@ -110,7 +114,8 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         List<TerminalNode> varList = ctx.Var().stream().toList();
         for (TerminalNode v : varList) {
             String var = v.getText();
-            if(!tabelaSimbolos.containsKey(var)) {
+            Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
+            if(!escopoAtual.containsKey(var)) {
                 hasError = true;
                 erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
             }
@@ -135,6 +140,19 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     @Override
     public void exitEveryRule(ParserRuleContext parserRuleContext) {
 
+    }
+
+
+    @Override
+    public void enterNRegraBlocoDeFuncao(PATOParser.NRegraBlocoDeFuncaoContext ctx) {
+        super.enterNRegraBlocoDeFuncao(ctx);
+        tabelaSimbolosStack.push(new HashMap<>());
+    }
+
+    @Override
+    public void exitNRegraBlocoDeFuncao(PATOParser.NRegraBlocoDeFuncaoContext ctx) {
+        super.exitNRegraBlocoDeFuncao(ctx);
+        tabelaSimbolosStack.pop();
     }
 
     //VERIFICA SE HÁ ERROS
