@@ -1,5 +1,6 @@
+// checagem de tipo
 qint main() <quack>
 	qint variavelExemplo1;
 	qbool variavelExemplo2 <- False;
-	variavelExemplo1 <- variavelExemplo2;
+	variavelExemplo1 <- variavelExemplo2; // erro ao atribuir uma variável qbool a uma variável qint
 </quack>

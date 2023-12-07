@@ -1,9 +1,0 @@
-qint main() <quack>
-	qint variavelExemplo1;
-	qchar variavelExemplo2 <- "TESTEATRIBUICAO";
-	qint teste;
-
-	//teste <- variavelExemplo2;
-    //quackin>>variavelExemplo2;
-    //quackin>>teste;
-</quack>

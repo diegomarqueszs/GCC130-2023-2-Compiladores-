@@ -1,0 +1,4 @@
+qint main() <quack>
+	qint 1variavelExemplo; // variaveis nao podem comecar com valor numerico
+	variavelExemplo1 <- 2;
+</quack>
