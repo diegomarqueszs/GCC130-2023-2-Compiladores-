@@ -96,10 +96,8 @@ OpBool      ->  'E' | 'OU';
 OK
 
 ### 6. Definição Semântica: Especificação das ações semânticas ( Checagem de tipo,  Checagem de variáveis não declaradas,  checagem de declarações duplicadas de variáveis, checagem de escopo de variáveis);
-### 6. Definição Semântica: Especificação das ações semânticas ( Checagem de tipo,  Checagem de variáveis não declaradas,  checagem de declarações duplicadas de variáveis, checagem de escopo de variáveis);
-
-**402 - Checagem de tipo**
-Não é permitido atribuir valores de tipo diferente ao tipo da variável. Exemplo:
+1. **Checagem de tipo**
+   Não é permitido atribuir valores de tipo diferente ao tipo da variável. Exemplo:
 ```java
 qint main() <quack>
 	qint variavelExemplo1;
@@ -110,37 +108,56 @@ qint main() <quack>
 
 Esse código gerará a seguinte mensagem de erro:
 ```Bash
-└──ERRO 402 - O VALOR ATRIBUIDO A [ variavelExemplo1 ] NÃO É DO TIPO [ qint ]
+└──ERRO 406 - O VALOR ATRIBUIDO A [ variavelExemplo1 ] NÃO É DO TIPO [ qint ]
 ```
 
-**404 - Variável não declarada (e checagem de escopo)**
-Não é permitido atribuir valores ou realizar operações com variáveis que não foram definidas ou que estão em um escopo diferente. Exemplo:
+2. **Variável não declarada (e checagem de escopo)**
+   Não é permitido atribuir valores ou realizar operações com variáveis que não foram definidas ou que estão em um escopo diferente. Exemplo:
 
 ```java
 qint main() <quack>
-	qbool variavelExemplo1 <- true;
-	if(variavelExemplo <> true) <quack>
+	qbool variavelExemplo1 <- True;
+	if(variavelExemplo <> True) <quack>
 		qint variavelExemplo <- 1;
 	</quack> else <quack>
 		qint variavelExemplo <- 0;
 	</quack>
 	quackout << variavelExemplo;
-	
 </quack>
 ```
 
-Caso isso ocorra, será mostrado erro do tipo:
+Esse código gerará mensagens de erro do tipo:
 
 ```Bash
 └──ERRO 403 - VARIAVEL [ variavelExemplo ] NÃO DECLARADA!
 ```
 
-**401 - Declaração duplicada**
-Não é permitido definição de uma mesma variável no mesmo escopo. Exemplo:
+3. **Checagem de escopo**
+   É permitido declarações de variáveis iguais sem que haja conflito desde que sejam em escopos diferentes. Exemplo:
+```java
+qint main() <quack>
+	qbool variavelExemplo1 <- True;
+	if(variavelExemplo1 <> True) <quack>
+		qint variavelExemplo <- 1;
+	</quack> else <quack>
+		qint variavelExemplo <- 0;
+	</quack>
+	quackout << variavelExemplo1;
+</quack>
+```
+
+Caso haja tentativa de atribuir valores ou realizar operações com variáveis de outros escopos, será mostrado erro de variável inexistente.
+```Bash
+└──ERRO 404 - VARIAVEL [ variavelExemplo ] NÃO DECLARADA!
+```
+
+4. **Checagem de declaração duplicada**
+   Não é permitido definição de uma mesma variável no mesmo escopo. Exemplo:
+
 ```java
 qint main()<quack>
-	qint variavelExemplo;
-	if(i<!>0) <quack>
+	qint variavelExemplo <- 1;
+	if(variavelExemplo<!>0) <quack>
 		qint variavelExemplo;
 	</quack>
 	qint variavelExemplo;
@@ -149,16 +166,7 @@ qint main()<quack>
 </quack>
 ```
 
-
 Caso isso ocorra, será mostrado erro do tipo:
 ```Bash
-└──ERRO 401 - Declaração duplicada! Variável variavelExemplo já declarada
-```
-
-```Java
-qint main() <quack>
-	qint variavelExemplo1;
-	qdouble variavelExemplo2 <- 2.0;
-	variavelExemplo1 <- variavelExemplo2;
-</quack>
+└──ERRO 409 - Declaração duplicada! Variável variavelExemplo já declarada
 ```
