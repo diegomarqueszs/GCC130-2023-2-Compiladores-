@@ -1,4 +1,4 @@
-// Generated from PATO.g4 by ANTLR 4.7.2
+// Generated from PATO.G4 by ANTLR 4.7.2
 package GCCC130.src;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -112,6 +112,18 @@ public class PATOBaseListener implements PATOListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRegraFuncaoEncapsulada(PATOParser.RegraFuncaoEncapsuladaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRegraFuncaoEncapsulada(PATOParser.RegraFuncaoEncapsuladaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -196,13 +208,13 @@ public class PATOBaseListener implements PATOListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx) { }
+	@Override public void enterRegraFatorFuncaoEncapsulada(PATOParser.RegraFatorFuncaoEncapsuladaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx) { }
+	@Override public void exitRegraFatorFuncaoEncapsulada(PATOParser.RegraFatorFuncaoEncapsuladaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

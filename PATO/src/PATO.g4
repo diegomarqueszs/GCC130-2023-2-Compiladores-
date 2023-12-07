@@ -8,13 +8,14 @@ parametros: (Tipo Var (',' Tipo Var)*)?  #RegraParametros; // Lista de parâmetr
 escopoFunc: AQ (declaracao | comandos | condicoes | retorno | atribuicao | funcao)+ FQ #NRegraEscopoDeclaracao;
 
 declaracao: Tipo Var (Atr expressao)? DELIM #RegraDeclaracao | string #RegraDeclaracaoString;
-retorno: RTN ( expressao | atribuicao | AP funcao OpArit funcao? FP ) DELIM #RegraRetorno;
+retorno: RTN ( expressao | atribuicao | AP funcao_encapsulada OpArit funcao_encapsulada? FP ) DELIM #RegraRetorno;
 funcao: Var AP expressao  FP DELIM #RegraFuncao;
+funcao_encapsulada: Var AP expressao  FP #RegraFuncaoEncapsulada;
 atribuicao: Var Atr expressao DELIM? #RegraAtribuicao | string #RegraAtribuicaoString;
 string: 'qchar'? Var (Atr '"' Var '"')? DELIM;
 expressao: termo (OpArit termo)* #RegraExpressao;
 termo: fator (OpArit fator)* #RegraTermo;
-fator: Var #RegraFatorVariavel | Numero #RegraFatorNumero | funcao #RegraFatorFuncao;
+fator: Var #RegraFatorVariavel | Numero #RegraFatorNumero | funcao_encapsulada #RegraFatorFuncaoEncapsulada;
 comandos: input #RegraComandosInput| output #RegraComandosOutput;
 condicoes: Cond (AP  parametrosCondicao (OpBool  parametrosCondicao)* FP)? ( retorno | escopoFunc ) #RegraCondicoes;
 parametrosCondicao: expressao OpRel  expressao #RegraParametrosDeCondicoes;

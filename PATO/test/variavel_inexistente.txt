@@ -10,8 +10,8 @@ qint main()<quack>
     quackin>>xis>>zzzzz;
 
     //Teste variavel duplicada
-    //qint u;
-    //qbool u;
+    qint u;
+    qbool u;
     //qint u;
     //qbool u;
 

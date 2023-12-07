@@ -1,4 +1,4 @@
-// Generated from PATO.g4 by ANTLR 4.7.2
+// Generated from PATO.G4 by ANTLR 4.7.2
 package GCCC130.src;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -104,6 +104,18 @@ public interface PATOListener extends ParseTreeListener {
 	 */
 	void exitRegraFuncao(PATOParser.RegraFuncaoContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code RegraFuncaoEncapsulada}
+	 * labeled alternative in {@link PATOParser#funcao_encapsulada}.
+	 * @param ctx the parse tree
+	 */
+	void enterRegraFuncaoEncapsulada(PATOParser.RegraFuncaoEncapsuladaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code RegraFuncaoEncapsulada}
+	 * labeled alternative in {@link PATOParser#funcao_encapsulada}.
+	 * @param ctx the parse tree
+	 */
+	void exitRegraFuncaoEncapsulada(PATOParser.RegraFuncaoEncapsuladaContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code RegraAtribuicao}
 	 * labeled alternative in {@link PATOParser#atribuicao}.
 	 * @param ctx the parse tree
@@ -186,17 +198,17 @@ public interface PATOListener extends ParseTreeListener {
 	 */
 	void exitRegraFatorNumero(PATOParser.RegraFatorNumeroContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code RegraFatorFuncao}
+	 * Enter a parse tree produced by the {@code RegraFatorFuncaoEncapsulada}
 	 * labeled alternative in {@link PATOParser#fator}.
 	 * @param ctx the parse tree
 	 */
-	void enterRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx);
+	void enterRegraFatorFuncaoEncapsulada(PATOParser.RegraFatorFuncaoEncapsuladaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code RegraFatorFuncao}
+	 * Exit a parse tree produced by the {@code RegraFatorFuncaoEncapsulada}
 	 * labeled alternative in {@link PATOParser#fator}.
 	 * @param ctx the parse tree
 	 */
-	void exitRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx);
+	void exitRegraFatorFuncaoEncapsulada(PATOParser.RegraFatorFuncaoEncapsuladaContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code RegraComandosInput}
 	 * labeled alternative in {@link PATOParser#comandos}.

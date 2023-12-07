@@ -1,7 +1,6 @@
-// Generated from PATO.g4 by ANTLR 4.7.2
-
+// Generated from PATO.G4 by ANTLR 4.7.2
 package GCCC130.src;
-import GCCC130.src.PATOParser;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -69,6 +68,13 @@ public interface PATOVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRegraFuncao(PATOParser.RegraFuncaoContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code RegraFuncaoEncapsulada}
+	 * labeled alternative in {@link PATOParser#funcao_encapsulada}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRegraFuncaoEncapsulada(PATOParser.RegraFuncaoEncapsuladaContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code RegraAtribuicao}
 	 * labeled alternative in {@link PATOParser#atribuicao}.
 	 * @param ctx the parse tree
@@ -117,12 +123,12 @@ public interface PATOVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRegraFatorNumero(PATOParser.RegraFatorNumeroContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code RegraFatorFuncao}
+	 * Visit a parse tree produced by the {@code RegraFatorFuncaoEncapsulada}
 	 * labeled alternative in {@link PATOParser#fator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRegraFatorFuncao(PATOParser.RegraFatorFuncaoContext ctx);
+	T visitRegraFatorFuncaoEncapsulada(PATOParser.RegraFatorFuncaoEncapsuladaContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code RegraComandosInput}
 	 * labeled alternative in {@link PATOParser#comandos}.
