@@ -1,0 +1,9 @@
+qint main() <quack>
+	qbool variavelExemplo1 <- True;
+	if(variavelExemplo <> True) <quack>
+		qint variavelExemplo <- 1;
+	</quack> else <quack>
+		qint variavelExemplo <- 0;
+	</quack>
+	quackout << variavelExemplo;
+</quack>
