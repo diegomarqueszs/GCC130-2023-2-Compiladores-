@@ -46,7 +46,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     }
 
 
-    //Verifica variável duplicada
+    //Verifica variável duplicada toda vez que entra na regra de declracao
     @Override
     public void exitRegraDeclaracao(PATOParser.RegraDeclaracaoContext ctx) {
         super.exitRegraDeclaracao(ctx);
@@ -74,7 +74,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     }
 
 
-
+    //Verifica variável não declaradas toda vez que sai da regra de atribuição
     @Override
     public void exitRegraAtribuicao(PATOParser.RegraAtribuicaoContext ctx) {
         super.enterRegraAtribuicao(ctx);
@@ -97,6 +97,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         }
     }
 
+    //Verifica variável não declaradas toda vez que sai da regra de "output"
     @Override
     public void exitRegraOutput(PATOParser.RegraOutputContext ctx) {
         super.exitRegraOutput(ctx);
@@ -108,6 +109,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         }
     }
 
+    //Verifica variável não declaradas toda vez que entra na regra de "input"
     @Override
     public void enterRegraInput(PATOParser.RegraInputContext ctx) {
         super.exitRegraInput(ctx);
@@ -122,16 +124,18 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         }
     }
 
+    //Verifica variável não declaradas toda vez que sai da regra de fator
     @Override
     public void enterRegraFatorVariavel(PATOParser.RegraFatorVariavelContext ctx) {
         super.enterRegraFatorVariavel(ctx);
         String var = ctx.Var().getText();
         Map<String, String> escopoAtual = tabelaSimbolosStack.peek();
-        if(!escopoAtual.containsKey(var)){
-            hasError = true;
-            erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
+        if(!var.equals("False") && !var.equals("True")){
+            if(!escopoAtual.containsKey(var)){
+                hasError = true;
+                erros += ("\n└──ERRO 403 - VARIAVEL [ " + var + " ] NÃO DECLARADA!");
+            }
         }
-
     }
 
     @Override
@@ -196,7 +200,7 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
     }
 
     // Função auxiliar para verificar se uma string representa um número
-    private boolean isNumero(String str) {
+    private boolean isDouble(String str) {
         try {
             Double.parseDouble(str);
             return true;
@@ -205,10 +209,24 @@ public class MyListener extends PATOBaseListener implements ParseTreeListener {
         }
     }
 
+    private boolean isInt(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     private boolean verificaTipo(String tipo, String valor){
-        if(tipo.equals("qint") || tipo.equals("qdouble")){
-            return isNumero(valor);
-        } else if (tipo.equals("qbool")) {
+        if(tipo.equals("qint")){
+
+            return isInt(valor);
+        }
+        else if (tipo.equals("qdouble")){
+            return isDouble(valor);
+        }
+        else if (tipo.equals("qbool")) {
             return valor.equals("False") || valor.equals("True");
         } else {
             return tipo.equals("qchar");

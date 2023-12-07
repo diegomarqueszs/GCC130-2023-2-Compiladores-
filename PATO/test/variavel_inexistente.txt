@@ -1,13 +1,7 @@
 qint main()<quack>
-   qint i;
-</quack>
-
-qint main()<quack>
     qint i;
     if(i<!>0)<quack>
         qint i;
     </quack>
-    qint i;
-    qint u;
-    u <- 0;
+    i <- 0.0;
 </quack>
